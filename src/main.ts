@@ -6,7 +6,7 @@ import { createI18n } from "vue-i18n";
 
 import { router } from "./router";
 
-import store from './store'
+import store from "./store";
 import App from "~/App.vue";
 
 // reset css

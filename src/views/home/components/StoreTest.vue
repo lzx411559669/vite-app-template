@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useCount } from '~/store/counter';
+import { useCount } from "~/store/counter";
 
-const counter = useCount()
+const counter = useCount();
 </script>
 
 <template>

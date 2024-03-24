@@ -2,11 +2,17 @@
 import { useRequest } from "vue-hooks-plus";
 import { getUser } from "~/apis/userApi";
 import Avatar from "~/assets/avatar.jpg";
+
 const userStore = useUserStore();
-const { data } = useRequest(() => getUser(), {
-  onSuccess: () => {
-    userStore.setName(data.value.name);
+useRequest(() => getUser(), {
+  onSuccess: (res) => {
+    if (res) {
+      userStore.setName(res?.name);
+    }
   },
+  onError: (res) => {
+    console.log("🚀 ~ useRequest ~ res:", res.message);
+  }
 });
 </script>
 
@@ -20,17 +26,17 @@ const { data } = useRequest(() => getUser(), {
         target="_blank"
         rel="nofollow"
         class="inline-flex items-center justify-center hover:opacity-90"
-        ><div class="avatar mr-3">
-          <div class="mask mask-squircle h-14 w-14 bg-neutral p-px">
-            <img
-              width="54"
-              height="54"
-              :src="Avatar"
-              alt="Kirk Lin"
-              class="mask mask-squircle"
-            />
-          </div>
-        </div>
+      ><div class="avatar mr-3">
+         <div class="mask mask-squircle h-14 w-14 bg-neutral p-px">
+           <img
+             width="54"
+             height="54"
+             :src="Avatar"
+             alt="Kirk Lin"
+             class="mask mask-squircle"
+           >
+         </div>
+       </div>
         <div class="text-left">
           <h2 class="text-lg font-bold text-base-content">{{ userStore.hello }}</h2>
         </div>

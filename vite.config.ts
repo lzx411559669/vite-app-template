@@ -8,7 +8,7 @@ import IconsResolver from "unplugin-icons/resolver";
 import Inspect from "vite-plugin-inspect";
 import Inspector from "vite-plugin-vue-inspector";
 
-import { viteMockServe } from 'vite-plugin-mock'
+import { viteMockServe } from "vite-plugin-mock";
 
 // vite.config.ts
 import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite";
@@ -93,10 +93,10 @@ export default defineConfig({
         configFile: resolve(__dirname, "src/config/unocss/index.ts"),
       },
     ),
-    //mockjs
+    // mockjs
     viteMockServe({
-      mockPath: 'mockApi',
-    })
+      mockPath: "mockApi",
+    }),
   ],
   resolve: {
     alias: {
